@@ -1,2 +1,3 @@
 ### 参考資料
-- https://github.com/shundev/tictactoe-js-history
+- TicTacToeのロジックとテストは以下のレポジトリを参考にしました。
+  - https://github.com/shundev/tictactoe-js-history
