@@ -24,6 +24,7 @@ let testPlayer = () => {
   assert(p4 === 2);
 };
 
+// 初期化->0*9のArrayの比較, (prev, index, value)を受け取ってArrayの比較
 let testBoard = () => {
   console.log("testBoard");
   b1 = ttt.board();
