@@ -37,9 +37,28 @@ let testBoard = () => {
   assert(arrayEqual(b4, [4, 0, 0, 0, 0, 6, 0, 0, 10]));
 }
 
+let testIsDraw = () => {
+  console.log("testIsDraw");
+  let d = ttt.isDraw;
+  b1 = ttt.board();
+  b2 = ttt.board(b1, 0, 4);
+  b3 = ttt.board(b2, 8, 10);
+  b4 = ttt.board(b3, 5, 6);
+  b5 = [1,1,1,1,1,1,1,1,1,1]; // 全部埋まっている
+  b6 = [1,1,1,0,1,1,1,1,1,1]; // 一つだけ埋まっていない
+
+  assert(!d(b1));
+  assert(!d(b2));
+  assert(!d(b3));
+  assert(!d(b4));
+  assert(d(b5));
+  assert(!d(b6));
+}
+
 let runAll = () => {
   testPlayer();
   testBoard();
+  testIsDraw();
   console.log('ok')
 };
 
