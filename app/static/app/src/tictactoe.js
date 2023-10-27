@@ -10,8 +10,12 @@ let board = (prev, index, value) => {
   }
 };
 
+// ドロー判定
+let isDraw = (b) => b.every((v) => v != 0);
+
 
 module.exports = {
   player,
   board,
+  isDraw,
 };
