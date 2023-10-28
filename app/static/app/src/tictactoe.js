@@ -22,6 +22,16 @@ let winnerLine = (line) => {
   return 0;
 }
 
+// 横
+let row = (width) => (index) => (b) => {
+  let start = width * index;
+  return b.slice(start, start + width);
+};
+
+// 縦
+// 左斜め下
+// 右斜め上
+
 let winner = (b) => {
   // row | col | cross
 }
@@ -36,4 +46,5 @@ module.exports = {
   board,
   isDraw,
   winnerLine,
+  row,
 };

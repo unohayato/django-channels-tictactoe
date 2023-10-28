@@ -69,11 +69,28 @@ let testWinnerLine = () => {
   assert(wl([1, 1, 2]) === 0);
 };
 
+let testRow = () => {
+  console.log("testRow");
+  let row = ttt.row;
+  let row3 = row(3);
+
+  let b = [
+    0, 1, 2,
+    3, 4, 5,
+    6, 7, 8,
+  ];
+
+  assert(arrayEqual(row3(0)(b), [0, 1, 2]));
+  assert(arrayEqual(row3(1)(b), [3, 4, 5]));
+  assert(arrayEqual(row3(2)(b), [6, 7, 8]));
+};
+
 let runAll = () => {
   testPlayer();
   testBoard();
   testIsDraw();
   testWinnerLine();
+  testRow();
   console.log('ok')
 };
 
