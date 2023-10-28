@@ -58,21 +58,15 @@ let testIsDraw = () => {
 let testWinnerLine = () => {
   console.log("testWinnerLine");
 
-  wl1 = ttt.winnerLine([0, 0, 0]);
-  wl2 = ttt.winnerLine([1, 1, 1]);
-  wl3 = ttt.winnerLine([2, 0, 0]);
-  wl4 = ttt.winnerLine([0, 3, 0]);
-  wl5 = ttt.winnerLine([0, 0, 3]);
-  wl6 = ttt.winnerLine([2, 3, 0]);
-  wl7 = ttt.winnerLine([2, 2, 3]);
+  wl = ttt.winnerLine;
 
-  assert(wl1);
-  assert(wl2);
-  assert(!wl3);
-  assert(!wl4);
-  assert(!wl5);
-  assert(!wl6);
-  assert(!wl7);
+  assert(wl([0, 0, 0]) === 0);
+  assert(wl([1, 1, 1]) === 1);
+  assert(wl([2, 2, 2]) === 2);
+  assert(wl([2, 0, 2]) === 0);
+  assert(wl([0, 2, 2]) === 0);
+  assert(wl([1, 1, 0]) === 0);
+  assert(wl([1, 1, 2]) === 0);
 };
 
 let runAll = () => {

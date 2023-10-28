@@ -14,12 +14,12 @@ let board = (prev, index, value) => {
 // 縦 | 横 | 斜め -> 3パターン -> ボードから縦、横、斜めを切り出す -> 3要素の配列で判定
 // 同じような反復行為は取り出して処理する 
 
-let winnerLine = (l) => {
-  if (l[0] === l[1] && l[1] === l[2]) {
-    return true;
-  } else {
-    return false;
+let winnerLine = (line) => {
+  if (line[0] === line[1] && line[1] === line[2]){
+    return line[0];
   }
+
+  return 0;
 }
 
 let winner = (b) => {
