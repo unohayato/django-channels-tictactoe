@@ -35,7 +35,7 @@ let testBoard = () => {
   assert(arrayEqual(b2, [4, 0, 0, 0, 0, 0, 0, 0, 0]));
   assert(arrayEqual(b3, [4, 0, 0, 0, 0, 0, 0, 0, 10]));
   assert(arrayEqual(b4, [4, 0, 0, 0, 0, 6, 0, 0, 10]));
-}
+};
 
 let testIsDraw = () => {
   console.log("testIsDraw");
@@ -53,12 +53,33 @@ let testIsDraw = () => {
   assert(!d(b4));
   assert(d(b5));
   assert(!d(b6));
-}
+};
+
+let testWinnerLine = () => {
+  console.log("testWinnerLine");
+
+  wl1 = ttt.winnerLine([0, 0, 0]);
+  wl2 = ttt.winnerLine([1, 1, 1]);
+  wl3 = ttt.winnerLine([2, 0, 0]);
+  wl4 = ttt.winnerLine([0, 3, 0]);
+  wl5 = ttt.winnerLine([0, 0, 3]);
+  wl6 = ttt.winnerLine([2, 3, 0]);
+  wl7 = ttt.winnerLine([2, 2, 3]);
+
+  assert(wl1);
+  assert(wl2);
+  assert(!wl3);
+  assert(!wl4);
+  assert(!wl5);
+  assert(!wl6);
+  assert(!wl7);
+};
 
 let runAll = () => {
   testPlayer();
   testBoard();
   testIsDraw();
+  testWinnerLine();
   console.log('ok')
 };
 
