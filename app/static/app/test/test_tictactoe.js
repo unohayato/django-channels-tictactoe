@@ -85,12 +85,29 @@ let testRow = () => {
   assert(arrayEqual(row3(2)(b), [6, 7, 8]));
 };
 
+let testCol = () => {
+  console.log("testCol");
+  let col = ttt.col;
+  let col3 = col(3);
+
+  let b = [
+    0, 1, 2,
+    3, 4, 5,
+    6, 7, 8,
+  ];
+
+  assert(arrayEqual(col3(0)(b), [0, 3, 6]));
+  assert(arrayEqual(col3(1)(b), [1, 4, 7]));
+  assert(arrayEqual(col3(2)(b), [2, 5, 8]));
+};
+
 let runAll = () => {
   testPlayer();
   testBoard();
   testIsDraw();
   testWinnerLine();
   testRow();
+  testCol();
   console.log('ok')
 };
 

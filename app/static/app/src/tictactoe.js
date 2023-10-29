@@ -29,6 +29,9 @@ let row = (width) => (index) => (b) => {
 };
 
 // 縦
+let col = (width) =>(index) => b => {
+  return [b[index], b[index + width], b[index + 2 * width]]
+}
 // 左斜め下
 // 右斜め上
 
@@ -47,4 +50,5 @@ module.exports = {
   isDraw,
   winnerLine,
   row,
+  col,
 };
