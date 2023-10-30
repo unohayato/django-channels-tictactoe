@@ -101,6 +101,23 @@ let testCol = () => {
   assert(arrayEqual(col3(2)(b), [2, 5, 8]));
 };
 
+let testCrosses = () => {
+  console.log("testCrosses");
+
+  let l = ttt.crossL;
+  let r = ttt.crossR;
+
+  let b = [
+    0, 1, 2,
+    3, 4, 5,
+    6, 7, 8,
+  ];
+
+  assert(arrayEqual(l(b), [0, 4, 8]));
+  assert(arrayEqual(r(b), [2, 4, 6]));
+
+}
+
 let runAll = () => {
   testPlayer();
   testBoard();
@@ -108,6 +125,7 @@ let runAll = () => {
   testWinnerLine();
   testRow();
   testCol();
+  testCrosses();
   console.log('ok')
 };
 

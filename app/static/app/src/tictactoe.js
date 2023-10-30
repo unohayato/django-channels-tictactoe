@@ -32,8 +32,15 @@ let row = (width) => (index) => (b) => {
 let col = (width) =>(index) => b => {
   return [b[index], b[index + width], b[index + 2 * width]]
 }
-// 左斜め下
+// 右斜め下
+let crossL = (b) => {
+  return [b[0], b[4], b[8]];
+};
+
 // 右斜め上
+let crossR = (b) => {
+  return [b[2], b[4], b[6]];
+};
 
 let winner = (b) => {
   // row | col | cross
@@ -51,4 +58,6 @@ module.exports = {
   winnerLine,
   row,
   col,
+  crossL,
+  crossR,
 };
