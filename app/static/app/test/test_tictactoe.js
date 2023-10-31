@@ -116,6 +116,83 @@ let testCrosses = () => {
   assert(arrayEqual(l(b), [0, 4, 8]));
   assert(arrayEqual(r(b), [2, 4, 6]));
 
+};
+
+let testWinner = () => {
+  console.log("testWinner");
+
+  let w = ttt.winner;
+
+  let b1 = [
+    0, 1, 2,
+    3, 4, 5,
+    6, 7, 8,
+  ];
+
+  let b2 = [
+    0, 0, 0,
+    0, 0, 0,
+    0, 0, 0,
+  ];
+
+  let b3 = [
+    1, 0, 1,
+    0, 0, 0,
+    1, 0, 1,
+  ];
+
+  let b4 = [
+    1, 2, 1,
+    2, 0, 2,
+    1, 2, 1,
+  ];
+
+  // 以下勝者あり
+  let b5 = [
+    1, 1, 1,
+    2, 0, 2,
+    1, 2, 1,
+  ];
+
+  let b6 = [
+    1, 2, 1,
+    2, 0, 2,
+    1, 1, 1,
+  ];
+  let b7 = [
+    1, 2, 1,
+    1, 0, 2,
+    1, 2, 1,
+  ];
+  let b8 = [
+    0, 2, 2,
+    0, 1, 2,
+    0, 2, 2,
+  ];
+  let b9 = [
+    1, 2, 2,
+    0, 1, 1,
+    0, 2, 1,
+  ];
+  let b10 = [
+    1, 1, 2,
+    0, 2, 2,
+    2, 2, 1,
+  ];
+
+  assert(w(b1) === 0);
+  assert(w(b2) === 0);
+  assert(w(b3) === 0);
+  assert(w(b4) === 0);
+
+  assert(w(b5) === 1);
+  assert(w(b6) === 1);
+  assert(w(b7) === 1);
+  assert(w(b8) === 2);
+  assert(w(b9) === 1);
+  assert(w(b10) === 2);
+
+
 }
 
 let runAll = () => {
@@ -126,6 +203,7 @@ let runAll = () => {
   testRow();
   testCol();
   testCrosses();
+  testWinner();
   console.log('ok')
 };
 
