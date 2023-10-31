@@ -29,7 +29,7 @@ let row = (width) => (index) => (b) => {
 };
 
 // 縦
-let col = (width) =>(index) => b => {
+let col = (width) =>(index) => (b) => {
   return [b[index], b[index + width], b[index + 2 * width]]
 }
 // 右斜め下
@@ -44,7 +44,15 @@ let crossR = (b) => {
 
 let winner = (b) => {
   // row | col | cross
-}
+  let row3 = row(3);
+  let col3 = col(3);
+  let wl = winnerLine;
+  let rowW = wl(row3(0)(b)) || wl(row3(1)(b)) || wl(row3(2)(b));
+  let colW = wl(col3(0)(b)) || wl(col3(1)(b)) || wl(col3(2)(b));
+  let crossW = wl(crossR(b)) || wl(crossL(b));
+
+  return rowW || colW || crossW;
+};
 
 
 // ドロー判定
@@ -60,4 +68,5 @@ module.exports = {
   col,
   crossL,
   crossR,
+  winner,
 };
