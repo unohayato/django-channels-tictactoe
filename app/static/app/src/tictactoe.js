@@ -29,7 +29,7 @@ let row = (width) => (index) => (b) => {
 };
 
 // 縦
-let col = (width) =>(index) => b => {
+let col = (width) =>(index) => (b) => {
   return [b[index], b[index + width], b[index + 2 * width]]
 }
 // 右斜め下
