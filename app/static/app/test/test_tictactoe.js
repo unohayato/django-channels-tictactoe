@@ -225,6 +225,7 @@ let testState = () => {
   assert(s5.winner === 1);
   assert(s5.isDraw === false);
 
+  // 意図的にドローを再現する(mock)
   let s6 = ttt.state();
   s6.board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
