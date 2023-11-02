@@ -18,12 +18,14 @@ let askInput = (prevState) => {
     let select = Number(answer);
     let state = ttt.state(prevState, select);
     if (state.winner) {
+      printState(state);
       console.log(`Winner: player${state.winner}`);
       rl.close();
       return;
     }
-
+    
     if (state.isDraw) {
+      printState(state);
       console.log(`Draw game`);
       rl.close();
       return;
