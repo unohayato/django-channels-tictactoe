@@ -195,6 +195,46 @@ let testWinner = () => {
 
 }
 
+let testState = () => {
+  console.log("testState");
+
+  let s = ttt.state();
+
+  assert(arrayEqual(s.board, [0, 0, 0, 0, 0, 0, 0, 0, 0]));
+  assert(s.player === 1);
+  assert(s.winner === 0);
+  assert(s.isDraw === false);
+  
+  let s1 = ttt.state(s, 0);
+  assert(arrayEqual(s1.board, [1, 0, 0, 0, 0, 0, 0, 0, 0]));
+  assert(s1.player === 2);
+  assert(s1.winner === 0);
+  assert(s1.isDraw === false);
+
+  let s2 = ttt.state(s1, 8);
+  assert(arrayEqual(s2.board, [1, 0, 0, 0, 0, 0, 0, 0, 2]));
+  assert(s2.player === 1);
+  assert(s2.winner === 0);
+  assert(s2.isDraw === false);
+
+  let s3 = ttt.state(s2, 1);
+  let s4 = ttt.state(s3, 7);
+  let s5 = ttt.state(s4, 2);
+  assert(arrayEqual(s5.board, [1, 1, 1, 0, 0, 0, 0, 2, 2]));
+  assert(s5.player === 2);
+  assert(s5.winner === 1);
+  assert(s5.isDraw === false);
+
+  let s6 = ttt.state();
+  s6.board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+
+  let s7 = ttt.state(s6, 0);
+  assert(s7.winner === 0);
+  assert(s7.isDraw);
+
+  
+}
+
 let runAll = () => {
   testPlayer();
   testBoard();
@@ -204,6 +244,7 @@ let runAll = () => {
   testCol();
   testCrosses();
   testWinner();
+  testState();
   console.log('ok')
 };
 

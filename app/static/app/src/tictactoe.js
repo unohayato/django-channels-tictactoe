@@ -58,6 +58,27 @@ let winner = (b) => {
 // ドロー判定
 let isDraw = (b) => b.every((v) => v != 0);
 
+// 状態
+let state = (prev, select) => {
+  if (!prev) return {
+    board: board(),
+    player: player(),
+    winner: 0,
+    isDraw: false
+  }
+
+  let nextPlayer = player(prev.player);
+  let nextBoard = board(prev.board, select, prev.player);
+  let nextWinner = winner(nextBoard);
+  let nextIsDraw = nextWinner ? false : isDraw(nextBoard);
+  return {
+    board: nextBoard,
+    player: nextPlayer,
+    winner: nextWinner,
+    isDraw: nextIsDraw
+  };
+};
+
 
 module.exports = {
   player,
@@ -69,4 +90,5 @@ module.exports = {
   crossL,
   crossR,
   winner,
+  state,
 };
