@@ -48,3 +48,5 @@ let button = (num) => {
 };
 
 window.addEventListener("load", onLoad);
+
+console.log("hello");

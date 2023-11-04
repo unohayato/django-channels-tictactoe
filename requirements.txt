@@ -2,3 +2,4 @@ Django
 channels
 daphne
 channels_redis
+django-webpack-loader
