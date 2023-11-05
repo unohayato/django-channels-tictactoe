@@ -1,5 +1,7 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
+const BundleTracker = require('webpack-bundle-tracker');
+
 
 const entries = {}
 for (const fileName of require('fs').readdirSync(path.resolve(__dirname, 'static', 'entries'))) {
@@ -23,6 +25,12 @@ const baseConfig = {
       },
     },
   },
+  plugins: [
+    new BundleTracker({
+      path: __dirname,
+      filename: 'webpack-stats.json',
+    }),
+  ],
   module: {
     rules: [
       {
@@ -42,6 +50,9 @@ const devConfig = merge(baseConfig, {
   devServer: {
     port: 3000,
     hot: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    },
     watchOptions: {
       ignored: /node_modules/
     },

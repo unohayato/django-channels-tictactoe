@@ -1,3 +1,5 @@
+{% load render_bundle from webpack_loader %}
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -12,6 +14,9 @@
 
 <body>
   {% block content %}{% endblock %}
+  <!-- ⇓ ビルドされたスクリプトを読み込む ⇓ -->
+  {% comment %} {% render_bundle 'vendor' 'js' %} {% endcomment %}
+  {% render_bundle 'base' 'js' %}
   {% block external_footer %}{% endblock %}
 </body>
 
