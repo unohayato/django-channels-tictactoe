@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    "webpack_loader",
     "daphne",
     "app",
     "django.contrib.admin",
@@ -58,7 +57,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'frontend' / 'templates'],
+        "DIRS": [BASE_DIR / 'app' / 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -123,17 +122,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 # 静的ファイル周りの設定
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "frontend/dist")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
-
-# Webpack Loader
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'BUNDLE_DIR_NAME': '',  # '/' ではダメ
-        'STATS_FILE': BASE_DIR / 'frontend' / 'webpack-stats.json',
-    }
-}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
