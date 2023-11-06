@@ -94,9 +94,25 @@ let main = () => {
   _drawBoard(current(_state).board);
 
   let onClickButton = (index) => (e) => {
+    if (current(_state).winner || current(_state).isDraw) {
+      return;
+    }
+
+    if (current(_state).board[index]){
+      return;
+    }
     _state.push(state(current(_state), index));
     drawStatus(`Player${current(_state).player}'s turn`);
     _drawBoard(current(_state).board);
+
+    if (current(_state).winner) {
+      drawStatus(`Winner: player${current(_state).winner}`)
+    }
+
+    if (current(_state).isDraw) {
+      drawStatus(`Draw game`)
+    }
+
   };
 
   _buttons.map((v, i) => v.addEventListener('click', onClickButton(i)));
